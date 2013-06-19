@@ -1,0 +1,754 @@
+@charset "utf-8";
+/*
+Theme Name: tanzaku
+Theme URI: http://www.tripleships.com/sample/
+Description: Variable grid layout, easing ul.children lieffect on window resizing.
+Version: 1.1.1
+Author: TRIPLESHIPS Inc.
+Author URI: http://www.tripleships.com/
+Tags: silver, light, flexible-width, threaded-comments
+
+
+Index:
+  - Fonts
+  - Basic Elements
+  - Basic Styling
+  - Layout
+  - Grid Items, Single Item and Comments
+  - Navigation and Sidebar Widget
+  - Form Elements
+
+*/
+
+/* ---------- Fonts ---------- */
+
+@font-face {
+    font-family: 'meoded';
+    src: url('http://sub.haoneg.com/wp-content/themes/tanzaku%20-%20crazy%20clean%20jap%20animated%20text%20blog.%20Whiten%20bg.%20awesome%20with%20fine%20fonts/fonts/meodedserif.eot');
+    src: url('http://sub.haoneg.com/wp-content/themes/tanzaku%20-%20crazy%20clean%20jap%20animated%20text%20blog.%20Whiten%20bg.%20awesome%20with%20fine%20fonts/fonts/meodedserif.eot?iefix') format('eot'),
+         url('http://sub.haoneg.com/wp-content/themes/tanzaku%20-%20crazy%20clean%20jap%20animated%20text%20blog.%20Whiten%20bg.%20awesome%20with%20fine%20fonts/fonts/meodedserif.woff') format('woff'),
+         url('http://sub.haoneg.com/wp-content/themes/tanzaku%20-%20crazy%20clean%20jap%20animated%20text%20blog.%20Whiten%20bg.%20awesome%20with%20fine%20fonts/fonts/meodedserif.svg#webfontXYEjlEm1') format('svg');
+    font-weight: normal;
+    font-style: normal;
+   unicode-range: U+590-5ff;
+
+}
+
+@font-face {
+    font-family: 'meodedbold';
+    src: url('http://sub.haoneg.com/wp-content/themes/tanzaku%20-%20crazy%20clean%20jap%20animated%20text%20blog.%20Whiten%20bg.%20awesome%20with%20fine%20fonts/fonts/meodedserifbold.eot');
+    src: url('http://sub.haoneg.com/wp-content/themes/tanzaku%20-%20crazy%20clean%20jap%20animated%20text%20blog.%20Whiten%20bg.%20awesome%20with%20fine%20fonts/fonts/meodedserifbold.eot?iefix') format('eot'),
+         url('http://sub.haoneg.com/wp-content/themes/tanzaku%20-%20crazy%20clean%20jap%20animated%20text%20blog.%20Whiten%20bg.%20awesome%20with%20fine%20fonts/fonts/meodedserifbold.woff') format('woff'),
+         url('http://sub.haoneg.com/wp-content/themes/tanzaku%20-%20crazy%20clean%20jap%20animated%20text%20blog.%20Whiten%20bg.%20awesome%20with%20fine%20fonts/fonts/meodedserifbold.svg#webfontXYEjlEm1') format('svg');
+    font-weight: normal;
+    font-style: normal;
+   unicode-range: U+590-5ff;
+
+}
+
+@font-face {
+    font-family: 'rutz';
+    src: url('http://sub.haoneg.com/wp-content/themes/tanzaku%20-%20crazy%20clean%20jap%20animated%20text%20blog.%20Whiten%20bg.%20awesome%20with%20fine%20fonts/fonts/rutz.eot');
+    src: url('http://sub.haoneg.com/wp-content/themes/tanzaku%20-%20crazy%20clean%20jap%20animated%20text%20blog.%20Whiten%20bg.%20awesome%20with%20fine%20fonts/fonts/rutz.eot?iefix') format('eot'),
+         url('http://sub.haoneg.com/wp-content/themes/tanzaku%20-%20crazy%20clean%20jap%20animated%20text%20blog.%20Whiten%20bg.%20awesome%20with%20fine%20fonts/fonts/rutz.woff') format('woff'),
+         url('http://sub.haoneg.com/wp-content/themes/tanzaku%20-%20crazy%20clean%20jap%20animated%20text%20blog.%20Whiten%20bg.%20awesome%20with%20fine%20fonts/fonts/rutz.svg#rutzfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noticia Text';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noticia Text'), local('NoticiaText-Regular'), url(http://themes.googleusercontent.com/static/fonts/noticiatext/v3/wdyV6x3eKpdeUPQ7BJ5uUHhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+   unicode-range: U+00-FF;
+}
+
+
+/* ---------- Basic Elements ---------- */
+
+body {
+  background-color: #D9D9D9;
+	margin: 0;
+	padding: 0;
+	color: #000000;
+	font-family: meoded;
+	font-size: 10px;
+	line-height: 1.5;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+	color: #000000;
+	transition: all 0.2s ease-in-out;
+	-moz-transition:all 0.2s ease-in-out; /* Firefox 4 */
+	-webkit-transition: all 0.2s ease-in-out; /* Safari and Chrome */
+	-o-transition: all 0.2s ease-in-out; /* Opera */
+	
+}
+a:hover {
+	color: skyblue;
+}
+a img {
+	border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 1em 0;
+}
+h1 {
+	font-size: 28px;
+	font-weight: normal;
+	font-family: rutz;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 12px;
+	margin-top: 2em;
+	padding-left: 5px;
+}
+
+.post-body h3 {
+	font-size: 3.2em;
+	font-family: meoded;
+}
+
+blockquote {
+	float: left;
+	margin: 0px 10px 20px 0;
+	padding: 0.2em 20px 0.2em 20px;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	color: #999;
+	width: 35%;
+	font-size: 2em;
+	font-family: 'rutz', serif !important;
+	color: black;
+	text-align: center;
+	line-height: 1.2em !important;
+}
+
+quotes {
+	margin: 0px 10px 20px 0;
+	padding: 0.2em 20px 0.2em 20px;
+	color: #666 !important;
+	font-size: 1em;
+	font-family: 'rutz', serif !important;
+	line-height: 1.2em !important;
+}
+
+pre {
+	overflow: auto;
+	margin: 0;
+	padding: 10px;
+	background-color: #f9f9f9;
+	color: #666666;
+}
+
+fieldset {
+	border: 1px solid #cccccc;
+	padding: 10px;
+}
+
+table {
+	margin: 1em 0;
+	border: 1px solid #999999;
+}
+th, td {
+	padding: 2px 4px;
+	/*border: 1px solid #e9e9e9;*/
+}
+th {
+	background-color: #d9d9d9;
+	font-weight: normal;
+}
+td {
+	background-color: #d9d9d9;
+}
+
+/* ---------- Basic Styling ---------- */
+
+strong {
+	font-family: 'meodedbold';
+}
+
+.aligncenter {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.alignright {
+	float: right;
+	margin: 0 0 2px 10px;
+}
+
+.alignleft {
+	float: left;
+	margin: 0 10px 2px 0;
+}
+
+img.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+img.alignright {
+	padding: 5px;
+	display: inline;
+}
+
+img.alignleft {
+	padding: 20px 0 20px 0 !important;
+	display: inline;
+	margin: 10px 10px 10px 0;
+	border-top: 1px solid #ededed;
+	border-bottom: 1px solid #ededed;
+}
+
+.caution {
+	padding: 10px;
+	color: #e9e9e9;
+	text-align: center;
+	background-color: #cc0000;
+}
+noscript .caution {
+	margin: 0;
+}
+
+.wp-caption {
+	width: 100%;
+	border: 1px solid #e3e3e3;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	background-color: #ffffff;f
+	text-align: center;
+}
+.wp-caption img {
+	padding-top: 5px;
+}
+
+.wp-caption-text {
+	margin: 5px 0;
+	text-align: center;
+	font-size: smaller;
+	color: #666666;
+}
+
+code strong {
+	color: #cc3366;
+	font-weight: normal;
+}
+
+
+/* ---------- Layout ---------- */
+
+.dropcap1 {
+  color:#444444;
+  float:right;
+  font-family: rutz;
+  font-size:4em;
+  line-height:50px;
+  margin:-2px 0 0 8px;
+}
+
+.dropcap2 {
+  color:#444444;
+  float:right;
+  font-family:meoded;
+  font-size:4em;
+  line-height:50px;
+  margin:14px 0 0 8px;
+}
+
+#top-container {
+	margin: 0 auto;
+	padding: 5px;
+	background: white;
+}
+
+#container {
+	margin: 0 auto;
+	padding: 0;
+}
+
+	#header {
+		margin: 50px 100px 50px 16px;
+	}
+	#header h1 {
+		margin: 0;
+		color: #000000;
+		  font-family: 'rutz';
+		  font-size: 6em;
+		  line-height:0.5em;
+	}
+	#header h1 a{
+		margin: 0;
+		color: #000000;
+	}
+	#header p {
+		margin-top: 10px;
+		font-family: 'meoded', arial, sans-serif;
+		font-size: 1.5em;
+		color: #ededed;
+		transition: all 0.4s ease-in-out;
+		-moz-transition:all 0.4s ease-in-out; /* Firefox 4 */
+		-webkit-transition: all 0.2s ease-in-out; /* Safari and Chrome */
+		-o-transition: all 0.4s ease-in-out; /* Opera */
+	}
+
+	#header p:hover {
+		color: #ffffff;
+	}
+
+	#grid-wrapper {
+		margin: 0;
+		padding: 0;
+		padding-top: 1000px; /* Prevent flicker in grid area. Check header.php. */
+	}
+
+	#single-wrapper {
+		margin: 0;
+		padding: 0;
+		padding-top: 1000px; /* for single-page effect */
+	}
+
+#bottom-container {
+	clear: both;
+	width: 100%;
+	margin: 0;
+	padding: 30px 0 0;
+}
+
+	#footer-wrapper {
+		background: none;
+	}
+
+	#footer {
+		width: 80%;
+  color:#666666;
+  font-family:meoded;
+  font-size:1.4em;
+  margin-bottom:0;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:0;
+	}
+	#footer p {
+		margin: 0;
+		padding: 10px;
+	}
+	
+
+	
+
+/* ---------- Grid Items, Single Item and Comments ---------- */
+
+/* value = (width * n) + (15+15+5) * (n-1). 
+ * ex.
+ * width=200 : 200, 425, 650, 875
+ * width=250 : 250, 525, 800, 1075
+ * width=290 : 290, 615, 940, 1265
+ */
+div.x1 { width:  290px; }
+div.x2 { width:  615px; }
+div.x3 { width:  940px; }
+div.x4 { width: 1265px; }
+
+div.grid-item {
+	overflow: hidden;
+	margin: 0 5px 5px 0;
+	padding: 15px 15px 30px 15px;
+	border: 0;
+	background-color: #ffffff;
+	float:right;
+}
+
+div.single-item {
+	overflow: hidden;
+	margin: 0 5px 5px 0;
+	padding: 15px 22.5% 30px 22.5%;
+	border: 0;
+	background-color: #ffffff;
+}
+
+div.grid-item h2.post-title, .post h2 {
+	margin: 0;
+	padding-left: 0;
+	border-left: 0;
+	font-weight: normal;
+	font-size: 4.4em;
+	font-family: 'meoded';
+}
+div.single-item h2.post-title{
+	margin: 0;
+	padding-left: 0;
+	padding-top: 8px;
+	border-left: 0;
+	font-weight: normal;
+	font-size: 5em;
+	font-family: 'meoded';
+	line-height: 1em;
+}
+
+div.grid-item div.grid-image {
+	margin-bottom: 1em;
+}
+
+div.grid-item div.wp-caption {
+	display: none;
+}
+
+div.post-body p,
+div.comment-body p,
+.post p{
+	font-size: 16px;
+	font-family: 'meoded', serif;
+	color: #555555;
+	margin-bottom: 1em;
+}
+
+.post p img,
+div.post-body p img,
+div.post-body p object {
+	max-width: 100%;
+	padding: 0;
+}
+
+.post p:last-child,
+p.post-meta,
+p.comment-meta {
+  border-top-color:#999999;
+  border-top-style:solid;
+  border-top-width:1px;
+  color:#999999;
+  font-family:meoded;
+  font-size:1.2em;
+  margin-bottom:0;
+  padding-top:4px;
+}
+
+
+.comment-list .navigation {
+	margin: 10px 0;
+}
+.comment-list .navigation a {
+	margin-right: 10px;
+}
+
+.comment-list ol li {
+	margin: 10px 0;
+	list-style: none;
+}
+
+.comment-list ol li.trackback {
+	padding: 5px;
+	border: 1px solid #c4c4c4;
+}
+
+.comment-list ul.children {
+	list-style: none;
+}
+.comment-list ul.children li {
+	padding-left: 5px;
+}
+
+.comment-list li.bypostauthor {
+}
+.comment-list li.bypostauthor cite.fn {
+	text-decoration: none;
+	font-style:normal;
+}
+
+.comment-list li.comment .reply {
+	margin: 10px 0 20px;
+}
+
+h2.comment-title {
+  font-family:meoded;
+  font-size:3em;
+  font-weight:normal;
+
+}
+
+.comment-list {
+	background-color: #ededed;
+}
+
+.comment-body {
+	padding: 3em;
+	margin-left: 3em;
+}
+
+.comment-author {
+  background-color:#FFFFFF;
+  font-family:meoded;
+  font-size:1.8em;
+  padding-right:10px;
+}
+
+#respond {
+ margin-bottom:3em;
+  padding-top:0;
+}
+
+#respond h2 {
+	margin-top: 1em;
+}
+
+.comnum {
+display: none;
+}
+
+.comnum:hover {
+display: inline !important;
+}
+
+
+/* ---------- Navigation and Sidebar Widget ---------- */
+
+/* Pagination for grid items and paginated posts */
+.pagination {
+	margin: 50px 0 0;
+	font-size: 1.7em;
+	text-align: center;
+}
+.pagination .current {
+	color: #333333;
+	font-weight: bold:
+}
+.pagination .next, 
+.pagination .prev {
+}
+
+.pagination .page-numbers,
+.pagination .current {
+	margin: 0 10px 0 0;
+	padding: 10px 15px;
+	text-decoration: none;
+	background: #d9d9d9;
+}
+/* page-numbers hover color */
+a.page-numbers:hover {
+	color: #333333;
+	background-color: #eeeeee;
+}
+#post-pagination {
+	margin: 1em 0;
+	color: #c4c4c4;
+}
+#post-pagination .prefix {
+	color: #eaeaea;
+}
+
+/* Sidebar 
+ * In this theme, sidebar is a horizontal line.
+ * Sidebar2 is a block on the bottom.
+ * See also "Form Elements" section.
+ */
+#sidebar{
+	list-style: none;
+	list-style-type: none;
+	margin: 50px 0 50px 16px;
+	padding-left: 0;
+}
+#sidebar2 {
+	list-style: none;
+	list-style-type: none;
+	margin: 50px 0 0 25%;
+	padding-left: 0;
+}
+#sidebar li {
+	margin: 2px 0;
+}
+#sidebar li.widget h2.widgettitle {
+	display: none;
+}
+
+#sidebar li.widget ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar li.widget ul li {
+	display: inline;
+	padding-right: 5px;
+}
+
+li.current-cat {
+	text-decoration: none;
+	background: #ffffff;
+	width: 20%;
+	padding-right: 8px;
+}
+
+#sidebar2 li.widget {
+	display: block;
+	overflow: hidden;
+	float: left;
+	margin: 0 5px 5px 0;
+	width: 320px;
+	padding: 5px 0 0 0;
+	border: 0;
+}
+
+#sidebar2 h2.widgettitle {
+  background-color:#FFFFFF;
+  color:#333333;
+  font-family:meoded;
+  font-size:2em;
+  letter-spacing:0;
+  margin-top:0;
+  padding-bottom:5px;
+  padding-left:10px;
+  padding-right:20px;
+  padding-top:5px;
+}
+
+#sidebar2 li.widget div {
+	padding: 0 10px;
+	font-size: 14px;
+	font-family: meoded;
+}
+
+#sidebar2 li.widget div p {
+	color: #666666;
+}
+
+
+#sidebar2 li.widget ul {
+	margin: 0;
+	padding: 0 10px;
+	font-size: 14px;
+	font-family: meoded;
+}
+
+#sidebar2 li.widget ul li {
+	list-style: none;
+}
+#sidebar2 ul.children ul li {
+	list-style: none;
+}
+
+#wp-calendar {
+	margin: 1em 0;
+	border: none;
+}
+#wp-calendar caption{
+	text-align: left;
+	margin: 2px 0 0 0;
+	padding: 0;
+}
+#wp-calendar td {
+	text-align: center;
+}
+
+/* ---------- Form Elements ---------- */
+
+div.comment-form {
+	margin: 0;
+	padding: 0;
+	font-size: 1.5em;
+	font-family: 'meoded', serif;
+}
+
+#commentform {
+	margin: 0;
+	padding: 0;
+
+}
+#commentform textarea {
+	width: 99%;
+	max-width: 640px;
+	font-family: 'meoded', serif;
+	font-size: 1.2em;
+}
+
+#submit {
+	font-family: 'meoded', serif;
+	font-size: 1.5em;
+	background-color: #ffffff;
+	border: 1px solid #ededed;
+	padding: 0.3em;
+		cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	-moz-transition:all 0.2s ease-in-out; /* Firefox 4 */
+	-webkit-transition: all 0.2s ease-in-out; /* Safari and Chrome */
+	-o-transition: all 0.2s ease-in-out; /* Opera */
+	}
+
+#submit:hover {
+	background-color: #ededed;
+	border: 1px solid #ffffff;
+}
+
+/* for sidebar widget */
+
+#searchform {
+    width: 300px;
+}
+#searchform div {
+	padding: 0;
+	font-size: 12px;
+}
+#searchform label.screen-reader-text {
+	display: none;
+}
+#searchsubmit {
+	display: inline;
+}
+
+#s { /* #searchform input#s */
+	width: 170px;
+	margin: 0;
+}
+
+/* Footnotes
+--------------------------------------------- */
+
+ol.footnotes {
+  border-top-color:#EDEDED;
+  border-top-style:solid;
+  border-top-width:1px;
+  color:#666666;
+  font-size:1em;
+  padding-top:2em;
+}
+
+ol.footnotes li {
+	font-size: 1.6em;
+	font-family: 'meoded', serif;
+}
+
+
+/* Responsiveness
+--------------------------------------------- */
+
+@media screen and (max-width: 620px) {
+
+#container {
+	max-width: 479px;
+	margin: 25px auto 0 auto;
+	padding: 0px 10px 0px 10px;
+	overflow:hidden;
+	position:relative;
+}
+
+}
+
+sup {
+font-family: rutz;
+margin-right: 2px;
+}
