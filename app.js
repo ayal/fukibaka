@@ -1,3 +1,5 @@
+console.log('oh hai!');
+
 var app = angular.module('hanaxa', []);
 
 loadpost = function(posti) {
@@ -16,7 +18,7 @@ loadposts = function(i){
         newpost(data);
         loadposts(++i);
       });
-    
+
   }, function(){
     render();
   });
